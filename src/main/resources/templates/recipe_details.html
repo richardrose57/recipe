@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/common::head(title='Receptek')">
+<head th:replace="fragments/common::head(title=${recipe.get().name})">
 </head>
 <body>
 <div th:replace="fragments/common::#header_menu"></div>
 <div id="recipe_details">
-    <p th:text="${recipe}"></p>
+    <h2 th:text="${recipe.get().name}"></h2>
+    <label th:text="${recipe.get().type}"></label>
+    <img th:src="'data:image/jpeg;base64,'+${recipe.get().image}">
+    <p th:text="${recipe.get().description}"></p>
 </div>
 <script src="/scripts/recipe_details.js"></script>
 </body>

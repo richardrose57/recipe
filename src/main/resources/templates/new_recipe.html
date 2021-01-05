@@ -6,6 +6,9 @@
 <div th:replace="fragments/common::#header_menu"></div>
 
 <div id="new_recipe">
+    <input type='file' v-on:change="onFileSelected" />
+    <img id="recipeImg" height="150">
+
     <div>
         <label for="recipeName">Recept neve: </label>
         <input type="text" id="recipeName" v-model="recipe.name">

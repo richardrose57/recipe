@@ -1,5 +1,6 @@
 package hu.mik.pte.hu.recipe.controller;
 
+import hu.mik.pte.hu.recipe.entity.Recipe;
 import hu.mik.pte.hu.recipe.service.RecipeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

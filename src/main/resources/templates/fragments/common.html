@@ -8,10 +8,13 @@
 <body>
     <div id="header_menu">
         <div class="menu-item">
-            <a th:text="HOME" th:href="@{/}"></a>
+            <a th:href="@{/}">Home</a>
         </div>
         <div>
-            <a th:text="New_recipe" th:href="@{/new_recipe}"></a>
+            <a th:href="@{/new_recipe}">New recipe</a>
+        </div>
+        <div>
+            <a th:href="@{/all_recipes}">All recipes</a>
         </div>
     </div>
 </body>

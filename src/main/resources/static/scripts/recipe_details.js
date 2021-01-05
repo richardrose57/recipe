@@ -27,10 +27,10 @@ Vue.createApp({
         createJsonRecipe() {
             var elements = document.getElementById("recipeModel").children
             return JSON.parse(
-                '{ "id":' + '"' + elements["recipeId"].innerHTML + '",' +
+                '{ "id":' + '"' + elements["recipeId"].value + '",' +
                 '"name":' + '"' + elements["recipeId"].innerHTML + '",' +
                 '"type":' + '"' + elements["recipeType"].innerHTML + '",' +
-                '"image":' + '"' + elements["recipeImage"].src.split(',')[1] + '",' +
+                '"image":' + '"' + elements["recipeImage"].value + '",' +
                 '"description":' + '"' + elements["recipeDescription"].innerHTML + '"}'
             );
         }

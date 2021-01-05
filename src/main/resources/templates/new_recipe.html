@@ -6,24 +6,25 @@
 <div th:replace="fragments/common::#header_menu"></div>
 
 <div id="new_recipe">
-    <input type='file' v-on:change="onFileSelected" />
-    <img id="recipeImg" height="150">
+    <div class="w3-container" id="where" style="padding-bottom:32px;">
+        <div class="w3-content" style="max-width:700px">
+            <img id="recipeImg" height="500" class="w3-padding-16 w3-border w3-input">
+            <input text="Image" type='file' v-on:change="onFileSelected" class="w3-input w3-padding-16 w3-border"/>
+            <div>
+                <input type="text" id="recipeName" v-model="recipe.name" placeholder="Recipe Name"
+                       class="w3-input w3-padding-16 w3-border">
+                <select class="w3-input w3-padding-16 w3-border" id="recipeTypes" v-model="recipe.type">
+                    <option v-for="type in recipeTypes">{{type}}</option>
+                </select>
 
-    <div>
-        <label for="recipeName">Recept neve: </label>
-        <input type="text" id="recipeName" v-model="recipe.name">
-        <label for="recipeTypes">Recept típusa: </label>
-        <select id="recipeTypes" v-model="recipe.type">
-            <option v-for="type in recipeTypes">{{type}}</option>
-        </select>
-
-    </div>
-    <div>
-        <label>Recept leírása</label>
-        <textarea v-model="recipe.description"></textarea>
-    </div>
-    <div>
-        <button v-on:click="save">Save</button>
+            </div>
+            <div>
+                <textarea placeholder="Description of recipe" rows="40" v-model="recipe.description" class="w3-input w3-padding-16 w3-border"></textarea>
+            </div>
+            <div>
+                <button v-on:click="save" class="w3-button w3-black">Save</button>
+            </div>
+        </div>
     </div>
 </div>
 <script src="/scripts/new_recipe.js"></script>

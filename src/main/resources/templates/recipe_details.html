@@ -4,19 +4,22 @@
 </head>
 <body>
 <div th:replace="fragments/common::#header_menu"></div>
-<div id="recipe_details">
-    <div>
+<div id="recipe_details" class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
         <form id="recipeModel">
-            <label name="recipeId" type="hidden" th:text="${recipe.get().id}"></label>
+            <input name="recipeId" type="hidden" th:value="${recipe.get().id}"></input>
             <h2 name="recipeName" th:text="${recipe.get().name}"></h2>
             <label name="recipeType" th:text="${recipe.get().type}"></label>
-            <img name="recipeImage" th:src="'data:image/jpeg;base64,'+${recipe.get().image}">
+            <input type="hidden"  name="recipeImage" th:value="${recipe.get().image}">
             <p name="recipeDescription" th:text="${recipe.get().description}"></p>
         </form>
     </div>
+    <div class="w3-col l6 w3-padding-large">
+        <img th:src="'data:image/jpeg;base64,'+${recipe.get().image}" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
 
     <div sec:authorize="hasRole('ADMIN')">
-        <button v-on:click="deleteRecipe">Delete</button>
+        <button v-on:click="deleteRecipe" class="w3-button w3-black">Delete</button>
         <form method="post" th:action="@{/delete}" id="delete" enctype="application/json">
             <input name="recipe" id="recipeObj" type="hidden" th:value="${recipe.get()}">
         </form>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta content="text/html;" charset="UTF-8" http-equiv="content-type">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title th:text="${title}"></title>
+</head>
+<body>
+    <div id="header_menu">
+        <div class="menu-item">
+            <a th:text="HOME" th:href="@{/}"></a>
+        </div>
+        <div>
+            <a th:text="New_recipe" th:href="@{/new_recipe}"></a>
+        </div>
+    </div>
+</body>
+</html>

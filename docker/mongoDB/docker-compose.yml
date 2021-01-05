@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:4.4-bionic
+    container_name: mongodb2-docker
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+      - ./volumes/db:/data/db
+    ports:
+      - 27017:27017
+
+  mongo-express:
+    image: mongo-express:0.54
+    container_name: mongo2-express-docker
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_AUTH_DATABASE=prog5
+      - ME_CONFIG_MONGODB_AUTH_USERNAME=prog5
+      - ME_CONFIG_MONGODB_AUTH_PASSOWRD='Password111'
+    depends_on:
+      - mongodb
+    ports:
+      - "8888:8081"

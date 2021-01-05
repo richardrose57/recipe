@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common::head(title='Új recept hozzáadása')">
+</head>
+<body>
+<div th:replace="fragments/common::#header_menu"></div>
+
+<div id="new_recipe">
+    <div>
+        <label for="recipeName">Recept neve: </label>
+        <input type="text" id="recipeName" v-model="recipe.name">
+        <label for="recipeTypes">Recept típusa: </label>
+        <select id="recipeTypes" v-model="recipe.type">
+            <option v-for="type in recipeTypes">{{type}}</option>
+        </select>
+
+    </div>
+    <div>
+        <label>Recept leírása</label>
+        <textarea v-model="recipe.description"></textarea>
+    </div>
+    <div>
+        <button v-on:click="save">Save</button>
+    </div>
+</div>
+<script src="/scripts/new_recipe.js"></script>
+</body>
+</html>

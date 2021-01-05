@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common::head(title='Receptek')">
+</head>
+<body>
+<div th:replace="fragments/common::#header_menu"></div>
+<div id="all_recipes">
+    <div>
+        <table>
+            <tr>
+                <th>Név</th>
+                <th>Típus</th>
+            </tr>
+            <tr v-for="recipe in allRecipes">
+                <td>{{recipe.name}}</td>
+                <td>{{recipe.type}}</td>
+                <td><button v-on:click="open(recipe.id)">Megnyitás</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script src="scripts/all_recipes.js"></script>
+
+
+</body>
+</html>

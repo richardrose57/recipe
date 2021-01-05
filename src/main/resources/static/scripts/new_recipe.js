@@ -31,7 +31,7 @@ Vue.createApp({
                 var FR= new FileReader();
 
                 FR.addEventListener("load", function(e) {
-                    document.getElementById("recipeImg").src       = e.target.result;
+                    document.getElementById("recipeImg").src = e.target.result;
                 });
 
                 FR.readAsDataURL( event.target.files[0] );

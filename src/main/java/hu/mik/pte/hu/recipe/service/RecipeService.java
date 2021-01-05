@@ -23,4 +23,6 @@ public class RecipeService {
     public List<Recipe> findAllRecipes(){ return this.recipeRepository.findAll(); }
 
     public RecipeTypes[] getTypes() { return RecipeTypes.values(); }
+
+    public void delete(Recipe recipe) { this.recipeRepository.delete(recipe); }
 }

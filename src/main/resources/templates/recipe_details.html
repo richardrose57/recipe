@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:replace="fragments/common::head(title=${recipe.get().name})">
 </head>
 <body>
 <div th:replace="fragments/common::#header_menu"></div>
 <div id="recipe_details">
-    <h2 th:text="${recipe.get().name}"></h2>
-    <label th:text="${recipe.get().type}"></label>
-    <img th:src="'data:image/jpeg;base64,'+${recipe.get().image}">
-    <p th:text="${recipe.get().description}"></p>
+    <div>
+        <form id="recipeModel">
+            <label name="recipeId" type="hidden" th:text="${recipe.get().id}"></label>
+            <h2 name="recipeName" th:text="${recipe.get().name}"></h2>
+            <label name="recipeType" th:text="${recipe.get().type}"></label>
+            <img name="recipeImage" th:src="'data:image/jpeg;base64,'+${recipe.get().image}">
+            <p name="recipeDescription" th:text="${recipe.get().description}"></p>
+        </form>
+    </div>
+
+    <div sec:authorize="hasRole('ADMIN')">
+        <button v-on:click="deleteRecipe">Delete</button>
+        <form method="post" th:action="@{/delete}" id="delete" enctype="application/json">
+            <input name="recipe" id="recipeObj" type="hidden" th:value="${recipe.get()}">
+        </form>
+    </div>
 </div>
 <script src="/scripts/recipe_details.js"></script>
 </body>

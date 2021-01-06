@@ -9,14 +9,14 @@
         <div class="w3-content" style="max-width:700px">
             <table>
                 <tr>
-                    <th>Név</th>
-                    <th>Típus</th>
+                    <th th:text="#{recipe.name}">Név</th>
+                    <th th:text="#{recipe.type}">Típus</th>
                 </tr>
                 <tr v-for="recipe in allRecipes">
                     <td class="w3-large">{{recipe.name}}</td>
                     <td>{{recipe.type}}</td>
                     <td>
-                        <button v-on:click="open(recipe.id)" class="w3-button w3-black">Megnyitás</button>
+                        <button th:text="#{open}" v-on:click="open(recipe.id)" class="w3-button w3-black">Megnyitás</button>
                     </td>
                 </tr>
             </table>

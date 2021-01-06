@@ -21,10 +21,7 @@
         </div>
 
         <div sec:authorize="hasRole('ADMIN')">
-            <button v-on:click="deleteRecipe" class="w3-button w3-black">Delete</button>
-            <form method="post" th:action="@{/delete}" id="delete" enctype="application/json">
-                <input name="recipe" id="recipeObj" type="hidden" th:value="${recipe.get()}">
-            </form>
+            <button v-on:click="deleteRecipe" class="w3-button w3-black" th:text="#{delete}">Delete</button>
         </div>
     </div>
 </div>

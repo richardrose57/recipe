@@ -17,8 +17,8 @@ Vue.createApp({
                 body: JSON.stringify(this.recipe)
             }).then(res => {
                 if (res.ok) {
+                    window.location = 'http://localhost:8080/all_recipes'
                     alert('Save succesful!')
-                    window.location('http://localhost:8080/all_recipes')
                 } else {
                     throw new Error(res.error);
                 }

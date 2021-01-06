@@ -11,7 +11,7 @@
             <img id="recipeImg" height="500" class="w3-padding-16 w3-border w3-input">
             <input text="Image" type='file' v-on:change="onFileSelected" class="w3-input w3-padding-16 w3-border"/>
             <div>
-                <input type="text" id="recipeName" v-model="recipe.name" placeholder="Recipe Name"
+                <input type="text" id="recipeName" v-model="recipe.name" th:placeholder="#{recipe.name}"
                        class="w3-input w3-padding-16 w3-border">
                 <select class="w3-input w3-padding-16 w3-border" id="recipeTypes" v-model="recipe.type">
                     <option v-for="type in recipeTypes">{{type}}</option>
@@ -19,10 +19,10 @@
 
             </div>
             <div>
-                <textarea placeholder="Description of recipe" rows="40" v-model="recipe.description" class="w3-input w3-padding-16 w3-border"></textarea>
+                <textarea th:placeholder="#{recipe.description}" rows="40" v-model="recipe.description" class="w3-input w3-padding-16 w3-border"></textarea>
             </div>
             <div>
-                <button v-on:click="save" class="w3-button w3-black">Save</button>
+                <button th:text="#{save}" v-on:click="save" class="w3-button w3-black">Save</button>
             </div>
         </div>
     </div>

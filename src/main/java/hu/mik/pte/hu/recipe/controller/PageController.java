@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 @Controller
 @Slf4j
 @RequiredArgsConstructor
@@ -29,7 +31,7 @@ public class PageController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping("/delete" )
-    public String delete(@RequestBody String jsonRecipe) throws JsonProcessingException {
+    public String delete(@RequestBody String jsonRecipe) throws IOException {
 
         Recipe recipe = this.objectMapper.readValue(jsonRecipe, Recipe.class);
         this.recipeService.delete(recipe);

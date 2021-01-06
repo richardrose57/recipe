@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head(title)">
-    <meta content="text/html;" charset="UTF-8" http-equiv="content-type">
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://unpkg.com/vue@next"></script>
@@ -11,11 +11,11 @@
     <div id="header_menu">
 
         <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-            <a class="w3-bar-item w3-button" th:href="@{/}">Home</a>
+            <a th:text="#{menu.home}" class="w3-bar-item w3-button" th:href="@{/}">Home</a>
             <div class="w3-right w3-hide-small">
-                <a class="w3-bar-item w3-button" th:href="@{/all_recipes}">All recipes</a>
+                <a class="w3-bar-item w3-button" th:text="#{menu.all_recipes}" th:href="@{/all_recipes}">All recipes</a>
 
-                <a class="w3-bar-item w3-button" th:href="@{/new_recipe}">New recipe</a>
+                <a class="w3-bar-item w3-button" th:text="#{menu.new_recipe}" th:href="@{/new_recipe}">New recipe</a>
 
 
             </div>
@@ -23,7 +23,7 @@
         </div>
 
         <form method="post" th:action="@{/logout}">
-            <button class="w3-button w3-light-grey w3-section" type="submit" name="logout">Logout</button>
+            <button th:text="#{login.logout}"  class="w3-button w3-light-grey w3-section" type="submit" name="logout">Logout</button>
         </form>
 
 

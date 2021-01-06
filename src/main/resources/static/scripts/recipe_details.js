@@ -34,16 +34,6 @@ Vue.createApp({
                 '"description":' + '"' + elements["recipeDescription"].innerHTML + '"}'
             );
         }
-        // parseToJson(javaClass) {
-        //     var classData = javaClass.substr(javaClass.indexOf('('))
-        //     console.log(classData.split('image'))
-        //     classData = classData.replace(/ /g,'')
-        //     classData = classData.replace(/,/g,'","')
-        //     classData = classData.replace(/=/g,'":"')
-        //     classData = '{"' + classData.slice(1,-1) + '"}'
-        //     var jsonRecipe = JSON.parse(classData);
-        //     return jsonRecipe;
-        // }
     },
     mounted() {
     }
